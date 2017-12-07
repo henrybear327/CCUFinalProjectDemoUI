@@ -85,7 +85,7 @@ if (isset($_SESSION) == false)
 
             <div class="row">
                 <div class="col col-lg-2 offset-lg-1">
-                    <div class="card" style="width: 100%;">
+                    <div class="card" style="width: 93%;">
                         <img class="card-img-top" src="./static/attractions/kyoto-10_min.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Kyoto</h4>
@@ -96,7 +96,7 @@ if (isset($_SESSION) == false)
                 </div>
 
                 <div class="col col-lg-2">
-                    <div class="card" style="width: 100%;">
+                    <div class="card" style="width: 95%;">
                         <img class="card-img-top"
                              src="./static/attractions/hith-eiffel-tower-iStock_000016468972Large.jpg"
                              alt="Card image cap">
@@ -109,7 +109,7 @@ if (isset($_SESSION) == false)
                 </div>
 
                 <div class="col col-lg-2">
-                    <div class="card" style="width: 100%;">
+                    <div class="card" style="width: 85%;">
                         <img class="card-img-top" src="./static/attractions/tokyo.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Tokyo</h4>

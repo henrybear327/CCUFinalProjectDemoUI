@@ -12,6 +12,8 @@ if (isset($_SESSION) == false)
 echo "Start processing<br>";
 var_dump($_SESSION);
 
+unset($_SESSION['result']);
+
 $url = "index.php?";
 if (isset($_GET["reset"]) && $_GET['reset'] == 1) {
     echo "reset<br>";
@@ -45,7 +47,44 @@ if (isset($_GET["reset"]) && $_GET['reset'] == 1) {
     }
 
     echo "url = " . $url . "<br>";
+
+    // DB
+    echo "DB starts<br>";
+    try {
+        $db = new SQLite3("database.sqlite");
+        echo "DB ends<br>";
+        /*
+         * $recommendation = DB::table("recommendations")
+                ->join("attractions", "recommendations.attraction_id", "=", "attractions.id")
+                ->where("attractions.city_id", "=", $request->input("city_data"))
+                ->where("recommendations.user_id", "=", $request->input("user_data"))
+                ->select("attractions.name")
+                ->get();
+         * */
+
+        if(isset($_SESSION['user']) && isset($_SESSION['attraction'])) {
+            $nameResults = array();
+
+            $results = $db->query('SELECT a.name FROM recommendations r, attractions a where r.attraction_id=a.id and a.city_id=' . $_SESSION['attraction'] . " and r.user_id=" . $_SESSION['user']);
+            while ($row = $results->fetchArray()) {
+//                var_dump($row);
+                array_push($nameResults, $row['name']);
+//                echo "<br>";
+            }
+//            var_dump($nameResults);
+
+            if(count($nameResults) > 0) {
+                $_SESSION['result'] = $nameResults;
+            }
+        }
+
+        $db->close();
+    } catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+    }
+
+    echo "DB ends<br>";
 }
 
 var_dump($_SESSION);
-header('Refresh: 0; URL=' . $url);
+//header('Refresh: 0; URL=' . $url);

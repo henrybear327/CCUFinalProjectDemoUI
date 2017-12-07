@@ -1,3 +1,8 @@
+<?php
+if(isset($_SESSION) == false)
+    session_start();
+?>
+
 <html lang="en">
 
 <head>
@@ -42,18 +47,7 @@
                         <div class="card-block">
                             <h4 class="card-title">User 1</h4>
                             <p class="card-text">Kyoto</p>
-                            <a href="#" class="btn btn-primary">Select</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col col-lg-2">
-                    <div class="card" style="width: 100%;">
-                        <img class="card-img-top" src="./static/users/Australia.jpg" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-title">User 2</h4>
-                            <p class="card-text">Sydney, Adelaide</p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?user=1" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -62,9 +56,20 @@
                     <div class="card" style="width: 100%;">
                         <img class="card-img-top" src="./static/users/Europe.jpg" alt="Card image cap">
                         <div class="card-block">
+                            <h4 class="card-title">User 2</h4>
+                            <p class="card-text">Europe</p>
+                            <a href="process.php?user=2" class="btn btn-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-lg-2">
+                    <div class="card" style="width: 100%;">
+                        <img class="card-img-top" src="./static/users/Australia.jpg" alt="Card image cap">
+                        <div class="card-block">
                             <h4 class="card-title">User 3</h4>
-                            <p class="card-text">Munich</p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <p class="card-text">Sydney, Adelaide</p>
+                            <a href="process.php?user=3" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +90,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Kyoto</h4>
                             <p class="card-text"> </p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?attraction=1" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +101,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Paris</h4>
                             <p class="card-text"> </p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?attraction=2" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -107,7 +112,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Tokyo</h4>
                             <p class="card-text"> </p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?attraction=3" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -118,7 +123,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Sydney</h4>
                             <p class="card-text"> </p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?attraction=4" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -129,7 +134,7 @@
                         <div class="card-block">
                             <h4 class="card-title">Frankfurt</h4>
                             <p class="card-text"> </p>
-                            <a href="#" class="btn btn-primary">Select</a>
+                            <a href="process.php?attraction=5" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -179,6 +184,7 @@
 <div id="nav">
     <a id="a1" class=scroll href="#sec1">#Input</a>
     <a id="a2" class=scroll href="#sec2">#Result</a>
+    <a href="process.php?reset=1" class="btn btn-link" role="button" aria-pressed="true">#Reset</a>
 </div>
 
 </body>

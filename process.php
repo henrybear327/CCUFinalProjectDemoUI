@@ -75,6 +75,20 @@ if (isset($_GET["reset"]) && $_GET['reset'] == 1) {
 
             if(count($nameResults) > 0) {
                 $_SESSION['result'] = $nameResults;
+
+                $url .= "#sec2";
+            }
+        } else if(isset($_SESSION['attraction'])) {
+            $results = $db->query('SELECT a.name FROM attractions a where a.city_id=' . $_SESSION['attraction']);
+            while ($row = $results->fetchArray()) {
+//                var_dump($row);
+                array_push($nameResults, $row['name']);
+//                echo "<br>";
+            }
+//            var_dump($nameResults);
+
+            if(count($nameResults) > 0) {
+                $_SESSION['result'] = $nameResults;
             }
         }
 
@@ -87,4 +101,4 @@ if (isset($_GET["reset"]) && $_GET['reset'] == 1) {
 }
 
 var_dump($_SESSION);
-//header('Refresh: 0; URL=' . $url);
+header('Refresh: 0; URL=' . $url);

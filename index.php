@@ -1,5 +1,5 @@
 <?php
-if(isset($_SESSION) == false)
+if (isset($_SESSION) == false)
     session_start();
 ?>
 
@@ -89,19 +89,21 @@ if(isset($_SESSION) == false)
                         <img class="card-img-top" src="./static/attractions/kyoto-10_min.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Kyoto</h4>
-                            <p class="card-text"> </p>
-                            <a href="process.php?attraction=1" class="btn btn-primary">Select</a>
+                            <p class="card-text"></p>
+                            <a href="process.php?attraction=2" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col col-lg-2">
                     <div class="card" style="width: 100%;">
-                        <img class="card-img-top" src="./static/attractions/hith-eiffel-tower-iStock_000016468972Large.jpg" alt="Card image cap">
+                        <img class="card-img-top"
+                             src="./static/attractions/hith-eiffel-tower-iStock_000016468972Large.jpg"
+                             alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Paris</h4>
-                            <p class="card-text"> </p>
-                            <a href="process.php?attraction=2" class="btn btn-primary">Select</a>
+                            <p class="card-text"></p>
+                            <a href="process.php?attraction=4" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +113,7 @@ if(isset($_SESSION) == false)
                         <img class="card-img-top" src="./static/attractions/tokyo.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Tokyo</h4>
-                            <p class="card-text"> </p>
+                            <p class="card-text"></p>
                             <a href="process.php?attraction=3" class="btn btn-primary">Select</a>
                         </div>
                     </div>
@@ -122,8 +124,8 @@ if(isset($_SESSION) == false)
                         <img class="card-img-top" src="./static/attractions/OPERA1216.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Sydney</h4>
-                            <p class="card-text"> </p>
-                            <a href="process.php?attraction=4" class="btn btn-primary">Select</a>
+                            <p class="card-text"></p>
+                            <a href="process.php?attraction=5" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -133,8 +135,8 @@ if(isset($_SESSION) == false)
                         <img class="card-img-top" src="./static/attractions/Frankfurt-005-1.jpg" alt="Card image cap">
                         <div class="card-block">
                             <h4 class="card-title">Frankfurt</h4>
-                            <p class="card-text"> </p>
-                            <a href="process.php?attraction=5" class="btn btn-primary">Select</a>
+                            <p class="card-text"></p>
+                            <a href="process.php?attraction=1" class="btn btn-primary">Select</a>
                         </div>
                     </div>
                 </div>
@@ -151,30 +153,17 @@ if(isset($_SESSION) == false)
             <thead>
             <tr class="table-success">
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Name</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="table-info">
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr class="table-info">
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr class="table-info">
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            <?php
+            $cnt = 1;
+            foreach ($_SESSION['result'] as $row) {
+                echo "<tr class=\"table-info\"><th scope=\"row\">" . $cnt . "</th><td>" . $row . "</td></tr>";
+                $cnt++;
+            }
+            ?>
             </tbody>
         </table>
     </div>

@@ -76,6 +76,8 @@ if (isset($_GET["reset"]) && $_GET['reset'] == 1) {
                 $url .= "#sec2";
             }
         } else if(isset($_SESSION['attraction'])) {
+            $nameResults = array();
+            
             $results = $db->query('SELECT a.name FROM attractions a where a.city_id=' . $_SESSION['attraction']);
             while ($row = $results->fetchArray()) {
                 array_push($nameResults, $row['name']);
